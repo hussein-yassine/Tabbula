@@ -36,26 +36,11 @@ android {
 publishing {
     publications {
         create<MavenPublication>("release") {
+            from(components["release"])
+
             groupId = "com.github.hussein-yassine"
             artifactId = "Tabbula"
             version = "1.0.0"
-
-            // Correct path to the AAR file
-            artifact("${project.buildDir}/outputs/aar/Tabbula-release.aar")
-
-            pom {
-                withXml {
-                    val dependenciesNode = asNode().appendNode("dependencies")
-                    configurations["implementation"].dependencies.forEach { dependency ->
-                        if (dependency.name != "unspecified") {
-                            val dependencyNode = dependenciesNode.appendNode("dependency")
-                            dependencyNode.appendNode("groupId", dependency.group)
-                            dependencyNode.appendNode("artifactId", dependency.name)
-                            dependencyNode.appendNode("version", dependency.version)
-                        }
-                    }
-                }
-            }
         }
     }
 }
