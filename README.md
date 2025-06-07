@@ -1,6 +1,32 @@
 # **Tabbula – Integration Guide**
 ## **📦 Package**
 Tabbula offers a reusable and customizable tabbed layout using TabLayout and Fragment navigation.
+
+---
+
+## 📦 Installation
+
+### Step 1. Add JitPack to `settings.gradle.kts` (in `dependencyResolutionManagement` block):
+
+```kotlin
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url = uri("https://jitpack.io") }
+    }
+}
+```
+### Step 1. Add the dependency in your `build.gradle.kts`:
+
+```
+dependencies {
+    implementation("com.github.hussein-yassine:Tabbula:v1.0.2")
+}
+```
+---
+
 ## **✅ Features**
 - Supports fixed and scrollable tab modes.
 - Allows two loading strategies:
