@@ -33,14 +33,16 @@ android {
     }
 }
 
-publishing {
-    publications {
-        create<MavenPublication>("release") {
-            from(components["release"])
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
 
-            groupId = "com.github.hussein-yassine"
-            artifactId = "Tabbula"
-            version = "1.0.0"
+                groupId = "com.github.hussein-yassine"
+                artifactId = "Tabbula"
+                version = "1.0.0"
+            }
         }
     }
 }
